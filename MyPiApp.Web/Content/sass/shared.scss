@@ -1,0 +1,182 @@
+﻿*{
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Cardo');
+
+html,body{
+    height: 100%;
+}
+
+iframe{
+    display: none;
+}
+
+body {
+    font-size: 15px;
+    min-height: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+label{
+    margin-right: 10px;
+}
+
+select, input{
+    font-family: 'Montserrat', sans-serif;
+    padding: 7px 6px;
+    padding-top: 8px;
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #FFFFFF;
+    outline: none;
+    margin-bottom: 6px;
+    min-width: 225px;
+    border-radius: 0;
+
+    &::placeholder{
+        color: #E0E0E0;
+    }
+
+    &:focus{
+        border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+}
+
+input[type=tel]{
+    -webkit-appearance: none;
+}
+
+
+.cryptos-wrapper{
+    min-height: 88%;
+    display: flex;
+}
+
+.time-span-wrapper{
+    min-height: 12%;
+    padding: 15px;
+    padding-top: 20px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background: #eeeeee;
+
+    select{
+        color: black;
+        margin: 9px 12px;
+    }
+}
+
+.time-span-dropdown{
+    display: inline-block;
+}
+
+h1, h2{
+    margin: 10px 0;
+}
+
+h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 200;
+}
+
+h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 200;
+} 
+
+
+.small-icon{
+    font-size: 0.75em;
+    position: relative;
+    top: -1px;
+}
+
+.crypto-data{
+    width: 300px;
+    text-align: left;
+}
+
+.crypto{
+    display: flex;
+    flex: 1;
+    min-height: 200px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    padding: 30px 7px;
+
+    .price{
+        margin-right: 7px;
+        margin-bottom: 9px;
+        display: inline-block;
+    }
+
+    .price-difference{
+        font-size: 0.9em;
+        white-space: nowrap;
+
+    }
+}
+
+.negative{
+    color: red;
+}
+
+.positive{
+    color: #64ff64;
+}
+
+@media (max-width: 1400px){
+    .price-difference{
+        display: block;
+    }
+
+    .crypto-data{
+        width: 80%;
+    }
+
+    input[type=tel]{
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 695px){
+    .cryptos-wrapper{
+        flex-direction: column;
+    }
+
+    .crypto-data{
+        width: 82%;
+    }
+
+    h1{
+        font-size: 23px;
+    }
+
+    h2{
+        font-size: 18px;
+    } 
+    select, input{
+        font-size: 12px;
+    }
+}
+
+.transition{
+    transition: opacity 0.25s;
+}
+
+
+.upddated-anim{
+    opacity: 0.75;
+}

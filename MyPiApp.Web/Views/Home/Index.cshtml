@@ -1,0 +1,58 @@
+﻿@using Data.Entities.Constants
+@using Data.Entities.Enums
+@using Data.Helpers
+@using Data.StaticHelpers
+@using MyPiApp.Extensions
+@model MyPiApp.Models.HomeViewModel
+
+<div class="time-span-wrapper">
+    <div>
+        <select class="currency-dropdown">
+
+            @foreach (var currency in new[] { Currencies.GBP, Currencies.USD, Currencies.EUR })
+            {
+                string selected = currency.TextSymbol == Currencies.USD.TextSymbol ? "selected" : null;
+                <option @selected value="@currency.TextSymbol" data-symbol="@currency.UnicodeSymbol">
+                    Currency: @currency.TextSymbol
+                </option>
+            }
+
+        </select>
+
+        <select class="time-span-dropdown">
+            
+            @foreach (TimeSpansEnum timespan in Enum.GetValues(typeof(TimeSpansEnum)))
+            {
+                string selected = timespan == TimeSpansEnum.OneDay ? "selected" : null;
+                <option @selected value="@timespan">
+                    Time Period: @timespan.GetDisplayName()
+                </option>
+            }
+
+        </select>
+
+    </div>
+</div>
+
+<div class="cryptos-wrapper">
+@foreach (var crypto in Model.CryptosViewModel.Cryptos.OrderBy(c => c.Ordinal))
+{
+    <div class="crypto" style="background-color: @crypto.BgColor;"
+         data-symbol="@crypto.Symbol"
+         data-conversion-symbol="@WebConfigHelper.LocalCurrencySymbol"
+         data-sound-alert-above="@crypto.AboveSoundAlert"
+         data-sound-alert-below="@crypto.BelowSoundAlert"
+         data-conversion-unicode-symbol="@WebConfigHelper.LocalCurrencyUnicodeSymbol">
+        
+        <div class="crypto-data transition">
+            <h1>
+                @crypto.Name
+            </h1>
+            <h2>
+                Loading...
+            </h2>
+            <input type="tel" class="alert-above" placeholder="Alert when price reaches..." />
+            <input type="tel" class="alert-below" placeholder="Alert when price falls below..." />
+        </div>
+    </div>
+}</div>
