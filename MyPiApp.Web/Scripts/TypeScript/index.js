@@ -1,5 +1,5 @@
 /// <reference path="../typings/jquery.d.ts" />
-var HomePage = (function () {
+var HomePage = /** @class */ (function () {
     function HomePage() {
         var _this = this;
         this.cryptoPanelsSelector = ".crypto";
